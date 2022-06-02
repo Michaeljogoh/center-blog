@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Creating Schema for users post
-const postSchema = new mongoose.Schema({
+const commenterSchema = new mongoose.Schema({
     title:{
         type:String,
         required: true
@@ -20,6 +20,6 @@ const postSchema = new mongoose.Schema({
     }
 });
 
-const post = mongoose.model('post', postSchema);
-module.exports = post;
+const commenter = mongoose.model('commenter', commenterSchema);
+module.exports = commenter;
 
