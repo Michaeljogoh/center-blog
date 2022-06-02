@@ -10,8 +10,12 @@ const commentSchema = new mongoose.Schema({
     author:{
         type: String,
         required: true
+    },
+    date:{
+        type: Date,
+        default:Date.now
     }
 })
 
 const comment  = mongoose.model('comment', commentSchema);
-exports.modules = comment;
+module.exports = comment;
