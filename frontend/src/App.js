@@ -1,12 +1,12 @@
 import React, {useState} from "react"
 import './App.css';
-import Post from "./component/Post";
+import Comment from './component/Comment.js'
 
 const App = () =>  {
 
   return (
-    <div>
-   <Post />
+    <div className="App">
+ <Comment />
     </div>
   );
 }
