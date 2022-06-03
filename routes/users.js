@@ -38,7 +38,7 @@ router.post('/comment', (req, res)=>{
 
 });
 
-// FGet All Comment
+// FGet All Post
 router.get('/post', (req, res)=>{
     post.find({}, (err, posts)=>{
     if(err){
@@ -49,6 +49,15 @@ router.get('/post', (req, res)=>{
     });
 });
 // Get All Comment
+router.get('/comment', (req, res)=>{
+    comment.find({}, (err, posts)=>{
+    if(err){
+        res.send('Nothing was fetched')
+        next();
+    }
+    res.json(posts)
+    });
+});
 
 // Get Post By id
 router.get('/post/:id', (req, res)=>{
@@ -60,13 +69,6 @@ router.get('/post/:id', (req, res)=>{
     });
 });
 
-router.post('/postName', async (req, res)=>{
-    let {name}= req.body
-    let {title} = req.body;
-    let {author} = req.body;
-    console.log(name);
-    console.log(title);
-    console.log(author)
-})
+
 
 module.exports = router;
