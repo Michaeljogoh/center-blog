@@ -5,6 +5,17 @@ const post = require('../model/post');
 const comment = require('../model/comment');
 
 
+// FGet All Post
+router.get('/post', (req, res)=>{
+    post.find({}, (err, posts)=>{
+    if(err){
+        res.send('Nothing was fetched')
+        next();
+    }
+    res.json(posts)
+    });
+});
+
 
 //  Route for creating a blog;
 router.post('/post', (req, res)=>{
@@ -19,7 +30,20 @@ router.post('/post', (req, res)=>{
     .catch(error =>{
 res.json(error)
     })
-})
+});
+
+
+// Get All Comment
+router.get('/comment', (req, res)=>{
+    comment.find({}, (err, posts)=>{
+    if(err){
+        res.send('Nothing was fetched')
+        next();
+    }
+    res.json(posts)
+    });
+});
+
 
 // Route for creating a comment
 router.post('/comment', (req, res)=>{
@@ -38,26 +62,7 @@ router.post('/comment', (req, res)=>{
 
 });
 
-// FGet All Post
-router.get('/post', (req, res)=>{
-    post.find({}, (err, posts)=>{
-    if(err){
-        res.send('Nothing was fetched')
-        next();
-    }
-    res.json(posts)
-    });
-});
-// Get All Comment
-router.get('/comment', (req, res)=>{
-    comment.find({}, (err, posts)=>{
-    if(err){
-        res.send('Nothing was fetched')
-        next();
-    }
-    res.json(posts)
-    });
-});
+
 
 // Get Post By id
 router.get('/post/:id', (req, res)=>{
